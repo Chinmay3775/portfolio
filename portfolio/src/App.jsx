@@ -1,37 +1,66 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ContactPage from './pages/ContactPage';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/NavBar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Education from "./components/Education";
+import Achievements from "./components/Achievements";
+import Contact from "./components/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
-const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage/>;
-      case 'about':
-        return <AboutPage />;
-      case 'projects':
-        return <ProjectsPage />;
-      case 'contact':
-        return <ContactPage />;
-      default:
-        return <HomePage />;
-    }
-  };
+  // Theme toggle
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
+  // Track active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        "hero", "about", "experience", "projects",
+        "skills", "education", "achievements", "contact"
+      ];
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const themeClasses = isDarkMode
+    ? "bg-gray-900 text-white"
+    : "bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-900";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main className="pt-20">
-        {renderPage()}
-      </main>
+    <div className={`min-h-screen transition-all duration-500 ${themeClasses}`}>
+      <Navbar
+        isDarkMode={isDarkMode}
+        toggleTheme={toggleTheme}
+        activeSection={activeSection}
+      />
+      <Hero isDarkMode={isDarkMode} />
+      <About isDarkMode={isDarkMode} />
+      <Experience isDarkMode={isDarkMode} />
+      <Projects isDarkMode={isDarkMode} />
+      <Skills isDarkMode={isDarkMode} />
+      <Education isDarkMode={isDarkMode} />
+      <Achievements isDarkMode={isDarkMode} />
+      <Contact isDarkMode={isDarkMode} />
+      <ScrollToTop isDarkMode={isDarkMode} />
     </div>
   );
-};
+}
 
 export default App;
