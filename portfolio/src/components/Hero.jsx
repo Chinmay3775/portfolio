@@ -49,7 +49,7 @@ export default function Hero({ isDarkMode }) {
         <div className="flex items-center justify-center space-x-2 mb-6">
           <MapPin size={16} className="text-red-500" />
           <span className={`text-sm font-medium ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-            Ichalkaranji, Maharashtra, India
+            Jaysingpur, Maharashtra, India
           </span>
         </div>
 
