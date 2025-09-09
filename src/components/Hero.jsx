@@ -20,7 +20,7 @@ export default function Hero({ isDarkMode }) {
         {/* Profile Image */}
         <div className="w-80 h-80 mx-auto mb-8 relative">
           <img
-            src="/profile.jpg" // 👉 make sure image is inside public/
+            src="profile.jpg" // 👉 make sure image is inside public/
             alt="Chinmay Keripale"
             className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-blue-500"
           />

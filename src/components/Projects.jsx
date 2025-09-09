@@ -32,7 +32,7 @@ export default function Projects({ isDarkMode }) {
       link: "https://github.com/Chinmay3775/MP-1-Dairy-Management-System--Project",
       tech: ["HTML", "CSS", "JavaScript", "PHP"],
       tag: "Web Development",
-      image: "/images/prg1.jpg",
+      image: "images/prg1.jpg",
     },
     {
       title: "AI Flashcard Generator",
@@ -42,7 +42,7 @@ export default function Projects({ isDarkMode }) {
       link: "https://github.com/Chinmay3775/Mini-Project-II.git",
       tech: ["Python", "Streamlit", "NLP", "OCR"],
       tag: "AI/ML",
-      image: "/images/prg2.jpeg",
+      image: "images/prg2.jpeg",
     },
     {
       title: "Book Recommendation System",
@@ -52,7 +52,7 @@ export default function Projects({ isDarkMode }) {
       link: "https://github.com/Chinmay3775/Book-Recommendation-System",
       tech: ["Python", "Scikit-learn", "Flask"],
       tag: "Machine Learning",
-      image: "/images/prg3.webp",
+      image: "images/prg3.webp",
     },
     {
       title: "TECH SYMPOSIUM 2K25",
@@ -63,7 +63,7 @@ export default function Projects({ isDarkMode }) {
       live: "https://tech-symposium-2025.web.app/",
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
       tag: "Web Development",
-      image: "/images/prg4.png",
+      image: "images/prg4.png",
     },
   ];
 
