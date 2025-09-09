@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/Portfolio/portfolio/'  // ✅ exact repo name
+  base: '/Portfolio/'  // ✅ exact repo name
 })
