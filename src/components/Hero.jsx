@@ -74,7 +74,7 @@ export default function Hero({ isDarkMode }) {
           </a>
 
           <a
-            href="/portfolio/Chinmay_Keripale_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}Chinmay_Keripale_Resume.pdf`}
             download="Chinmay_Keripale_Resume.pdf"
             className={`flex items-center space-x-2 ${cardClasses} backdrop-blur-sm border-2 px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
           >
