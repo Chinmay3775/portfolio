@@ -61,13 +61,7 @@ export default function Contact({ isDarkMode }) {
 
           {/* Extra Cards (Leadership / Experience) */}
           <div className="space-y-6">
-            <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
-              <Briefcase className="text-orange-500 mb-2" size={24} />
-              <h3 className="font-bold mb-1">AWS Cloud Virtual Internship</h3>
-              <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-                Deployed apps on AWS, reduced deployment time by 30%.
-              </p>
-            </div>
+            
             <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
               <Users className="text-purple-500 mb-2" size={24} />
               <h3 className="font-bold mb-1">Vice-President</h3>
