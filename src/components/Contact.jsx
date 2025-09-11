@@ -44,7 +44,7 @@ export default function Contact({ isDarkMode }) {
               </div>
               <div>
                 <h3 className="font-semibold">Phone</h3>
-                <p>+91 123 456 789</p>
+                <p>+91 9130091352</p>
               </div>
             </div>
 
@@ -54,7 +54,7 @@ export default function Contact({ isDarkMode }) {
               </div>
               <div>
                 <h3 className="font-semibold">Location</h3>
-                <p>Ichalkaranji, Maharashtra, India</p>
+                <p>Jaysingpur, Maharashtra, India</p>
               </div>
             </div>
           </div>
