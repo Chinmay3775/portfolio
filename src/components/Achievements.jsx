@@ -12,7 +12,6 @@ export default function Achievements({ isDarkMode }) {
     { icon: <GraduationCap className="text-green-500" size={24} />, title: "NPTEL Programming in Java", org: "NPTEL" },
     { icon: <Code className="text-blue-500" size={24} />, title: "Google AI-ML Virtual Internship", org: "AICTE" },
     { icon: <Code className="text-orange-500" size={24} />, title: "AWS Cloud Virtual Internship", org: "AICTE" },
-    { icon: <Star className="text-purple-500" size={24} />, title: "TECH SYMPOSIUM 2K25 Website", org: "DKTE" },
   ];
 
   return (

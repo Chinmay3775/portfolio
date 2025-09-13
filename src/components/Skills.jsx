@@ -10,7 +10,7 @@ export default function Skills({ isDarkMode }) {
     "AI/ML Technologies": ["Machine Learning", "NLP", "Data Preprocessing", "Model Training", "Scikit-learn", "TensorFlow"],
     "Web Technologies": ["HTML/CSS", "JavaScript", "React", "PHP", "Bootstrap", "Node.js"],
     "Tools & Frameworks": ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Streamlit", "Google Colab"],
-    "Cloud & Databases": ["AWS", "MySQL", "Linux", "Docker"],
+    "Cloud & Databases": ["AWS", "MySQL" ],
     "Soft Skills": ["Leadership", "Teamwork", "Communication", "Problem Solving", "Adaptability", "Critical Thinking"]
   };
 
