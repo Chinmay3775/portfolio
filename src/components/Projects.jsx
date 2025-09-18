@@ -77,7 +77,7 @@ export default function Projects({ isDarkMode }) {
     },
     {
       title: "Neuropulse Project: AI-Based Screen Addiction & Dopamine Spike Detector",
-  desc: "Ongoing mega project combining AI/ML with an Android app (Java) to detect screen addiction and prevent dopamine-driven drone scrolling.",
+  desc: "Ongoing mega project combining AI/ML with an Android app (Java) to detect screen addiction and prevent dopamine-driven droom scrolling.",
   year: "2025",
   emoji: "⚡",
   link: "https://github.com/Chinmay3775/Neuropulse-MegaProject.git",
