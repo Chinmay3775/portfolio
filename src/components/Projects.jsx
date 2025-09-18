@@ -57,7 +57,7 @@ export default function Projects({ isDarkMode }) {
     {
       title: "TECH SYMPOSIUM 2K25",
       desc: "Official website for a college tech symposium event featuring registration, schedules, and galleries.",
-      year: "2025",
+      year: "2024",
       emoji: "🎓",
       link: "https://github.com/Chinmay3775/DKTE.git",
       live: "https://tech-symposium-2025.web.app/",
@@ -65,6 +65,27 @@ export default function Projects({ isDarkMode }) {
       tag: "Web Development",
       image: "images/prg4.png",
     },
+    {
+      title: "Hotel ADI Website",
+      desc: "A completed responsive website project for Hotel ADI, showcasing menus and services.",
+      year: "2024",
+      emoji: "🏨",
+      link: "https://github.com/Chinmay3775/WEB-TECH.git",
+      tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      tag: "Web Development",
+      image: "images/prg5.jpg",
+    },
+    {
+      title: "Neuropulse Project: AI-Based Screen Addiction & Dopamine Spike Detector",
+  desc: "Ongoing mega project combining AI/ML with an Android app (Java) to detect screen addiction and prevent dopamine-driven drone scrolling.",
+  year: "2025",
+  emoji: "⚡",
+  link: "https://github.com/Chinmay3775/Neuropulse-MegaProject.git",
+  tech: ["Python", "AI/ML", "Java", "Android"],
+  tag: "AI/ML + Android (Ongoing)",
+  image: "images/prg6.png",
+},
+
   ];
 
   return (
@@ -94,9 +115,9 @@ export default function Projects({ isDarkMode }) {
                 <div
                   className={`relative h-40 lg:h-48 overflow-hidden ${
                     p.title === "AI Flashcard Generator"
-                      ? "h-56 lg:h-64" // Slightly taller for clarity
+                      ? "h-56 lg:h-64"
                       : p.title === "TECH SYMPOSIUM 2K25"
-                      ? "h-36 lg:h-44" // Slightly shorter
+                      ? "h-36 lg:h-44"
                       : "h-40 lg:h-48"
                   }`}
                 >
@@ -104,9 +125,9 @@ export default function Projects({ isDarkMode }) {
                     src={p.image}
                     alt={`${p.title} illustration`}
                     className={`w-full h-full ${
-                      p.title === "AI Flashcard Generator" || p.title === "TECH SYMPOSIUM 2K25"
-                        ? "object-contain bg-white" // scale nicely inside box
-                        : "object-cover" // keep default for others
+                      p.title === "AI Flashcard Generator" || p.title === "TECH SYMPOSIUM 2K25"||p.title === "Neuropulse Project: AI-Based Screen Addiction & Dopamine Spike Detector"
+                        ? "object-contain bg-white"
+                        : "object-cover"
                     }`}
                   />
                   <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
@@ -123,7 +144,7 @@ export default function Projects({ isDarkMode }) {
                     isDarkMode ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  {p.title}
+                  {p.title} {p.emoji}
                 </h3>
                 <p
                   className={`${
