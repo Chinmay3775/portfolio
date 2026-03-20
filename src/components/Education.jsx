@@ -1,72 +1,48 @@
-import React from "react";
-import { GraduationCap } from "lucide-react";
+import React from 'react';
 
-export default function Education({ isDarkMode }) {
-  const cardClasses = isDarkMode
-    ? "bg-gray-800/70 border-gray-700/50"
-    : "bg-white/70 border-white/20";
+const TIMELINE_EDU = [
+  {
+    year: 'Nov 2022 – May 2026',
+    title: 'B.Tech in Computer Science (AI-ML)',
+    org: 'DKTE, Ichalkaranji',
+    desc: 'Specializing in Artificial Intelligence and Machine Learning. Building expertise in ML models, deep learning, and data science applications.'
+  },
+  {
+    year: '2020 – 2022',
+    title: 'HSC Board',
+    org: 'JKV and ANN Jr. College',
+    desc: 'Completed Higher Secondary Certificate education with focus on Science stream.'
+  },
+  {
+    year: '2019 – 2020',
+    title: 'SSC Board',
+    org: 'Alphonsa School',
+    desc: 'Completed Secondary School Certificate with strong academic performance.'
+  }
+];
 
+const Education = () => {
   return (
-    <section id="education" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className={`text-3xl lg:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-            Education
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
-        </div>
-
-        <div className="space-y-6">
-          {/* B.Tech */}
-          <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
-            <div className="flex items-start space-x-4">
-              <GraduationCap className="text-blue-500" size={24} />
-              <div>
-                <h3 className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                  B.Tech in Computer Science (AI-ML)
-                </h3>
-                <p className="text-blue-600 font-medium">DKTE, Ichalkaranji</p>
-                <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-                  Nov 2022 – May 2026 (Expected)
-                </p>
+    <section id="education" className="container">
+      <h2 className="section-title reveal">Education</h2>
+      <div className="timeline">
+        {TIMELINE_EDU.map((item, idx) => (
+          <div key={idx} className="timeline-item reveal" style={{ transitionDelay: `${idx * 120}ms` }}>
+            <div className="timeline-dot" />
+            <div className="timeline-content">
+              <span className="tl-year">{item.year}</span>
+              <h3 className="tl-title">{item.title}</h3>
+              <div className="tl-org">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg>
+                {item.org}
               </div>
+              <p className="tl-desc">{item.desc}</p>
             </div>
           </div>
-
-          {/* HSC & SSC */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
-              <div className="flex items-start space-x-4">
-                <GraduationCap className="text-green-500" size={20} />
-                <div>
-                  <h3 className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                    HSC Board
-                  </h3>
-                  <p className="text-green-600 font-medium">JKV and ANN Jr. College</p>
-                  <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-                    2020 – 2022
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
-              <div className="flex items-start space-x-4">
-                <GraduationCap className="text-purple-500" size={20} />
-                <div>
-                  <h3 className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                    SSC Board
-                  </h3>
-                  <p className="text-purple-600 font-medium">Alphonsa School</p>
-                  <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-                    2019 – 2020
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
-}
+};
+
+export default Education;

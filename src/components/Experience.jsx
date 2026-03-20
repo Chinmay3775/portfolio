@@ -1,155 +1,59 @@
-import React from "react";
-import { Briefcase, Github } from "lucide-react";
+import React from 'react';
 
-export default function Experience({ isDarkMode }) {
-  const cardClasses = isDarkMode
-    ? "bg-gray-800/70 border-gray-700/50"
-    : "bg-white/70 border-white/20";
+const EXPERIENCES = [
+  {
+    year: '2025 - Present',
+    title: 'Software Engineer Trainee',
+    org: 'Thinqloud Solutions',
+    desc: 'Working on enterprise-level applications focusing on Salesforce and backend development. Implementing scalable business logic, debugging production issues, and contributing to real-time systems used in industry environments.',
+    tech: ['Salesforce', 'Apex', 'SOQL', '.NET', 'C#']
+  },
+  {
+    year: '2024',
+    title: 'Google AI-ML Virtual Internship',
+    org: 'AICTE',
+    desc: 'Built ML models for preprocessing and training, improving classification accuracy by 12%. Gained hands-on experience with real-world datasets and model optimization.',
+    tech: ['Python', 'Scikit-learn', 'Flask', 'Machine Learning']
+  },
+  {
+    year: '2024',
+    title: 'AWS Cloud Virtual Internship',
+    org: 'AICTE',
+    desc: 'Deployed applications on AWS with security and scalability best practices, reducing deployment time by 30%. Worked with core AWS services for cloud infrastructure.',
+    tech: ['AWS', 'EC2', 'S3', 'Cloud Deployment']
+  }
+];
 
+const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2
-            className={`text-3xl lg:text-4xl font-bold mb-4 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Experience
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Google AI-ML Internship */}
-          <div
-            className={`${cardClasses} backdrop-blur-sm p-6 rounded-2xl shadow-xl border`}
-          >
-            <div className="flex items-start space-x-4">
-              <Briefcase className="text-blue-500 mt-1" size={24} />
-              <div className="flex-1">
-                <h3
-                  className={`text-xl font-bold mb-2 ${
-                    isDarkMode ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  Google AI-ML Virtual Internship
-                </h3>
-                <p className="text-blue-600 font-medium mb-1">AICTE</p>
-                <p
-                  className={`text-sm mb-3 ${
-                    isDarkMode ? "text-gray-400" : "text-gray-500"
-                  }`}
-                >
-                  2024
-                </p>
-                <p
-                  className={`${
-                    isDarkMode ? "text-gray-300" : "text-gray-600"
-                  } mb-4`}
-                >
-                  Built ML models for preprocessing and training, improving
-                  classification accuracy by 12%.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Python", "Scikit-learn", "Flask", "ML"].map((tech, i) => (
-                    <span
-                      key={i}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-medium ${
-                        isDarkMode
-                          ? "bg-gray-700 text-gray-300"
-                          : "bg-gray-100 text-gray-700"
-                      }`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <a
-                    href="https://github.com/Chinmay3775/Book-Recommendation-System"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 text-sm font-medium"
-                  >
-                    <Github size={14} />
-                    <span>View Code</span>
-                  </a>
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      isDarkMode
-                        ? "bg-gray-700 text-gray-300"
-                        : "bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    Machine Learning
-                  </span>
-                </div>
+    <section id="experience" className="container">
+      <h2 className="section-title reveal">Experience</h2>
+      <div className="timeline">
+        {EXPERIENCES.map((item, idx) => (
+          <div key={idx} className="timeline-item reveal" style={{ transitionDelay: `${idx * 120}ms` }}>
+            <div className="timeline-dot" />
+            <div className="timeline-content">
+              <span className="tl-year">{item.year}</span>
+              <h3 className="tl-title">{item.title}</h3>
+              <div className="tl-org">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                {item.org}
+              </div>
+              <p className="tl-desc">{item.desc}</p>
+              <div className="tl-tech">
+                {item.tech.map(t => (
+                  <span key={t} className="tech-tag">{t}</span>
+                ))}
               </div>
             </div>
           </div>
-
-          {/* AWS Cloud Internship */}
-          <div
-            className={`${cardClasses} backdrop-blur-sm p-6 rounded-2xl shadow-xl border`}
-          >
-            <div className="flex items-start space-x-4">
-              <Briefcase className="text-yellow-500 mt-1" size={24} />
-              <div className="flex-1">
-                <h3
-                  className={`text-xl font-bold mb-2 ${
-                    isDarkMode ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  AWS Cloud Virtual Internship
-                </h3>
-                <p className="text-blue-600 font-medium mb-1">AICTE</p>
-                <p
-                  className={`text-sm mb-3 ${
-                    isDarkMode ? "text-gray-400" : "text-gray-500"
-                  }`}
-                >
-                  2024
-                </p>
-                <p
-                  className={`${
-                    isDarkMode ? "text-gray-300" : "text-gray-600"
-                  } mb-4`}
-                >
-                  Deployed applications on AWS with security and scalability best
-                  practices, reducing deployment time by 30%.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["AWS", "EC2", "S3", "Cloud Deployment"].map((tech, i) => (
-                    <span
-                      key={i}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-medium ${
-                        isDarkMode
-                          ? "bg-gray-700 text-gray-300"
-                          : "bg-gray-100 text-gray-700"
-                      }`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      isDarkMode
-                        ? "bg-gray-700 text-gray-300"
-                        : "bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    Cloud Computing
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
-}
+};
+
+export default Experience;

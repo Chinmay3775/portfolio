@@ -1,82 +1,40 @@
-import React from "react";
+import React from 'react';
 
-export default function About({ isDarkMode }) {
-  const cardClasses = isDarkMode
-    ? "bg-gray-800/70 border-gray-700/50"
-    : "bg-white/70 border-white/20";
-
+const About = () => {
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className={`text-3xl lg:text-4xl font-bold mb-4 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            About Me
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
+    <section id="about" className="container">
+      <h2 className="section-title reveal">About Me</h2>
+
+      <div className="about-grid reveal">
+        <div className="about-text">
+          <p>
+            I'm a final-year <strong>Computer Science (AI-ML)</strong> student at <strong>DKTE, Ichalkaranji</strong>, passionate about leveraging AI & ML to solve real-world problems. I've built ML models, web apps, and data analysis tools that make real impact.
+          </p>
+          <p>
+            My journey includes reducing manual work by <strong>40%</strong>, improving classification accuracy by <strong>12%</strong>, and cutting study time by <strong>30%</strong>. I thrive in collaborative environments and love solving challenging problems.
+          </p>
+          <p>
+            I maintain consistent practice on LeetCode and HackerRank to approach problems with optimized solutions. When I'm not coding, I explore the latest in AI research and open-source contributions.
+          </p>
         </div>
 
-        <div
-          className={`${cardClasses} backdrop-blur-sm rounded-3xl p-8 shadow-xl border`}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            <div className="lg:col-span-2">
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                I'm a final-year Computer Science (AI-ML) student at DKTE,
-                passionate about leveraging AI & ML to solve real-world problems.
-                I’ve built ML models, web apps, and data analysis tools that
-                make real impact.
-              </p>
-              <p
-                className={`text-lg leading-relaxed mb-6 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                My journey includes reducing manual work by 40%, improving
-                classification accuracy by 12%, and cutting study time by 30%. I
-                thrive in collaborative environments and love solving challenging
-                problems.
-              </p>
-              <p
-                className={`text-lg leading-relaxed ${
-                  isDarkMode ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                Alongside academics, I actively practice problem-solving on{" "}
-                <span className="font-semibold text-blue-500">LeetCode</span> and{" "}
-                <span className="font-semibold text-green-500">HackerRank</span>,
-                sharpening my skills in data structures, algorithms, and coding
-                challenges. This consistent practice helps me approach real-world
-                problems with optimized solutions.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-8xl mb-4">🎯</div>
-              <div
-                className={`text-2xl font-bold mb-2 ${
-                  isDarkMode ? "text-white" : "text-gray-900"
-                }`}
-              >
-                Problem Solver
-              </div>
-              <div
-                className={`${
-                  isDarkMode ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                Turning ideas into reality
-              </div>
-            </div>
+        <div className="about-stats">
+          <div className="stat-card">
+            <span className="stat-number">40%</span>
+            <span className="stat-label">Manual Work Reduced</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">12%</span>
+            <span className="stat-label">Accuracy Improved</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">30%</span>
+            <span className="stat-label">Study Time Cut</span>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default About;

@@ -1,215 +1,109 @@
-import React from "react";
-import { Github, Calendar, ExternalLink } from "lucide-react";
+import React from 'react';
 
-export default function Projects({ isDarkMode }) {
-  const cardClasses = isDarkMode
-    ? "bg-gray-800/70 border-gray-700/50"
-    : "bg-white/70 border-white/20";
+const PROJECTS = [
+  {
+    title: "Neuropulse: AI Screen Addiction Detector",
+    desc: "Mega project combining AI/ML with Android app to detect screen addiction patterns and prevent dopamine-driven doom scrolling using behavioral analysis.",
+    year: "2025",
+    github: "https://github.com/Chinmay3775/Neuropulse-MegaProject.git",
+    tech: ["Python", "AI/ML", "Java", "Android"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg6.png",
+  },
+  {
+    title: "Weapon Detection using YOLOv8",
+    desc: "Real-time weapon detection system using YOLOv8 object detection model with computer vision for security applications.",
+    year: "2025",
+    github: "https://github.com/Chinmay3775/SIH_Prototype.git",
+    tech: ["Python", "YOLOv8", "OpenCV"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg7.jpg",
+  },
+  {
+    title: "AI Flashcard Generator",
+    desc: "Intelligent study tool that generates flashcards from documents using OCR and NLP, reducing study time by 30%.",
+    year: "2024",
+    github: "https://github.com/Chinmay3775/Mini-Project-II.git",
+    tech: ["Python", "Streamlit", "NLP", "OCR"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg2.jpeg"
+  },
+  {
+    title: "TECH SYMPOSIUM 2K25",
+    desc: "Official interactive website for college tech symposium featuring event registration, schedules, speaker profiles, and dynamic galleries.",
+    year: "2024",
+    github: "https://github.com/Chinmay3775/DKTE.git",
+    live: "https://tech-symposium-2025.web.app/",
+    tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg4.png"
+  },
+  {
+    title: "Book Recommendation System",
+    desc: "ML-powered recommendation engine using collaborative filtering to suggest personalized book recommendations.",
+    year: "2023",
+    github: "https://github.com/Chinmay3775/Book-Recommendation-System",
+    tech: ["Python", "Scikit-learn", "Flask"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg3.webp"
+  },
+  {
+    title: "Monkey Meme Gesture Tracker",
+    desc: "Interactive computer vision application using MediaPipe that tracks hand gestures to dynamically control and trigger meme animations.",
+    year: "2024",
+    github: "https://github.com/Chinmay3775/Monkey-Meme-Gesture-Tracker.git",
+    tech: ["Python", "OpenCV", "MediaPipe"],
+    img: "./images/prg9.png"
+  },
+  {
+    title: "Electricity XGB Prediction Model",
+    desc: "Advanced machine learning model utilizing XGBoost regression to accurately forecast short-term electricity demand and consumption patterns.",
+    year: "2024",
+    github: "https://github.com/Chinmay3775/Electricity-XGB-Prediction-Model.git",
+    tech: ["Python", "XGBoost", "Pandas", "Scikit-learn"],
+    img: "./images/prg8.jpg"
+  },
+  {
+    title: "Online Dairy Management System",
+    desc: "Comprehensive platform to streamline farmer registration, milk tracking, quality monitoring, and automated payment processing.",
+    year: "2023",
+    github: "https://github.com/Chinmay3775/MP-1-Dairy-Management-System--Project",
+    tech: ["HTML", "CSS", "JavaScript", "PHP"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg1.jpg"
+  },
+  {
+    title: "Hotel ADI Website",
+    desc: "Professional responsive website for Hotel ADI showcasing services, menus, amenities, and online booking system.",
+    year: "2024",
+    github: "https://github.com/Chinmay3775/WEB-TECH.git",
+    tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    img: "https://chinmay3775.github.io/portfolio/images/prg5.jpg"
+  }
+];
 
-  // 🎨 Color mapping for tech tags
-  const techColors = {
-    HTML: "bg-orange-100 text-orange-700",
-    HTML5: "bg-orange-100 text-orange-700",
-    CSS: "bg-blue-100 text-blue-700",
-    CSS3: "bg-blue-100 text-blue-700",
-    JavaScript: "bg-yellow-100 text-yellow-700",
-    PHP: "bg-indigo-100 text-indigo-700",
-    Python: "bg-green-100 text-green-700",
-    "Scikit-learn": "bg-purple-100 text-purple-700",
-    Flask: "bg-gray-200 text-gray-800",
-    Streamlit: "bg-red-100 text-red-700",
-    NLP: "bg-pink-100 text-pink-700",
-    OCR: "bg-teal-100 text-teal-700",
-    Bootstrap: "bg-violet-100 text-violet-700",
-  };
-
-  const projects = [
-    {
-      title: "Online Dairy Management System",
-      desc: "A platform to streamline farmer registration, milk tracking, and payments.",
-      year: "2023",
-      emoji: "🥛",
-      link: "https://github.com/Chinmay3775/MP-1-Dairy-Management-System--Project",
-      tech: ["HTML", "CSS", "JavaScript", "PHP"],
-      tag: "Web Development",
-      image: "images/prg1.jpg",
-    },
-    {
-      title: "AI Flashcard Generator",
-      desc: "Generates study flashcards from documents using OCR + NLP.",
-      year: "2024",
-      emoji: "🧠",
-      link: "https://github.com/Chinmay3775/Mini-Project-II.git",
-      tech: ["Python", "Streamlit", "NLP", "OCR"],
-      tag: "AI/ML",
-      image: "images/prg2.jpeg",
-    },
-    {
-      title: "Book Recommendation System",
-      desc: "A ML-powered engine suggesting books using collaborative filtering.",
-      year: "2023",
-      emoji: "📚",
-      link: "https://github.com/Chinmay3775/Book-Recommendation-System",
-      tech: ["Python", "Scikit-learn", "Flask"],
-      tag: "Machine Learning",
-      image: "images/prg3.webp",
-    },
-    {
-      title: "TECH SYMPOSIUM 2K25",
-      desc: "Official website for a college tech symposium event featuring registration, schedules, and galleries.",
-      year: "2024",
-      emoji: "🎓",
-      link: "https://github.com/Chinmay3775/DKTE.git",
-      live: "https://tech-symposium-2025.web.app/",
-      tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-      tag: "Web Development",
-      image: "images/prg4.png",
-    },
-    {
-      title: "Hotel ADI Website",
-      desc: "A completed responsive website project for Hotel ADI, showcasing menus and services.",
-      year: "2024",
-      emoji: "🏨",
-      link: "https://github.com/Chinmay3775/WEB-TECH.git",
-      tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-      tag: "Web Development",
-      image: "images/prg5.jpg",
-    },
-    {
-      title: "Neuropulse Project: AI-Based Screen Addiction & Dopamine Spike Detector",
-  desc: "Ongoing mega project combining AI/ML with an Android app (Java) to detect screen addiction and prevent dopamine-driven droom scrolling.",
-  year: "2025",
-  emoji: "⚡",
-  link: "https://github.com/Chinmay3775/Neuropulse-MegaProject.git",
-  tech: ["Python", "AI/ML", "Java", "Android"],
-  tag: "AI/ML + Android (Ongoing)",
-  image: "images/prg6.png",
-},
-
-  ];
-
+const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2
-            className={`text-3xl lg:text-4xl font-bold mb-4 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Featured Projects
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
-        </div>
-
-        {/* Project Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((p, i) => (
-            <div
-              key={i}
-              className={`${cardClasses} backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border hover:shadow-2xl hover:-translate-y-2 transition-all`}
-            >
-              {/* Project Image */}
-              {p.image && (
-                <div
-                  className={`relative h-40 lg:h-48 overflow-hidden ${
-                    p.title === "AI Flashcard Generator"
-                      ? "h-56 lg:h-64"
-                      : p.title === "TECH SYMPOSIUM 2K25"
-                      ? "h-36 lg:h-44"
-                      : "h-40 lg:h-48"
-                  }`}
-                >
-                  <img
-                    src={p.image}
-                    alt={`${p.title} illustration`}
-                    className={`w-full h-full ${
-                      p.title === "AI Flashcard Generator" || p.title === "TECH SYMPOSIUM 2K25"||p.title === "Neuropulse Project: AI-Based Screen Addiction & Dopamine Spike Detector"
-                        ? "object-contain bg-white"
-                        : "object-cover"
-                    }`}
-                  />
-                  <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                    <Calendar size={12} />
-                    <span>{p.year}</span>
-                  </div>
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="p-6">
-                <h3
-                  className={`text-xl font-bold mb-3 ${
-                    isDarkMode ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {p.title} {p.emoji}
-                </h3>
-                <p
-                  className={`${
-                    isDarkMode ? "text-gray-300" : "text-gray-600"
-                  } text-sm mb-4`}
-                >
-                  {p.desc}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.tech.map((t, j) => (
-                    <span
-                      key={j}
-                      className={`inline-flex items-center justify-center px-3 py-1 rounded-lg text-xs font-medium ${
-                        techColors[t] ||
-                        (isDarkMode
-                          ? "bg-gray-700 text-gray-300"
-                          : "bg-gray-100 text-gray-700")
-                      }`}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links + Tag */}
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 text-sm font-medium"
-                    >
-                      <Github size={14} />
-                      <span>Code</span>
-                    </a>
-                    {p.live && (
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-1 text-green-600 hover:text-green-700 text-sm font-medium"
-                      >
-                        <ExternalLink size={14} />
-                        <span>Live</span>
-                      </a>
-                    )}
-                  </div>
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      isDarkMode
-                        ? "bg-gray-700 text-gray-300"
-                        : "bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    {p.tag}
-                  </span>
-                </div>
+    <section id="work" className="container">
+      <h2 className="section-title reveal">Featured Projects</h2>
+      <div className="projects-grid">
+        {PROJECTS.map((project, idx) => (
+          <div key={idx} className="project-card reveal" style={{ transitionDelay: `${idx * 100}ms` }}>
+            <div className="project-img-wrapper">
+              <img src={project.img} alt={project.title} className="project-img" loading="lazy" />
+              <div className="project-overlay">
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noreferrer" className="project-link-btn">Live Demo ↗</a>
+                )}
+                <a href={project.github} target="_blank" rel="noreferrer" className="project-link-btn">Code ↗</a>
               </div>
             </div>
-          ))}
-        </div>
+            <div className="project-body">
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-desc">{project.desc}</p>
+              <div className="project-tech">
+                {project.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

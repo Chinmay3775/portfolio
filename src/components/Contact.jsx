@@ -1,77 +1,180 @@
-import React from "react";
-import { Mail, Phone, MapPin, Users, Briefcase } from "lucide-react";
+import React, { useState, useRef } from 'react';
 
-export default function Contact({ isDarkMode }) {
-  const cardClasses = isDarkMode
-    ? "bg-gray-800/70 border-gray-700/50"
-    : "bg-white/70 border-white/20";
+/* ─── Toggle Form Visibility ──────────────────────────── */
+const SHOW_FORM = false; // ❌ false → hides right side form
+
+const Contact = () => {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('idle');
+  const [toast, setToast] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      setToast({
+        type: 'success',
+        msg: 'Thanks! I’ll get back to you soon 🚀',
+      });
+      e.target.reset();
+    } catch (err) {
+      setToast({
+        type: 'error',
+        msg: 'Something went wrong.',
+      });
+    } finally {
+      setStatus('idle');
+      setTimeout(() => setToast(null), 5000);
+    }
+  };
 
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2
-            className={`text-3xl lg:text-4xl font-bold mb-4 ${
-              isDarkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Let&apos;s Work Together
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4"></div>
-          <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-            Ready to bring your ideas to life? Let’s connect.
+    <section id="contact" className="container">
+      {toast && (
+        <div className={`toast ${toast.type}`}>
+          {toast.type === 'success' ? '🚀' : '❌'} {toast.msg}
+        </div>
+      )}
+
+      <h2
+        className="section-title reveal"
+        style={{
+          textAlign: 'center',
+          width: '100%',
+          marginBottom: '2.5rem',
+        }}
+      >
+        Let's Work Together
+      </h2>
+
+      <div
+        className="contact-container reveal"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: SHOW_FORM ? '1fr 1fr' : '1fr',
+          gap: '2rem',
+        }}
+      >
+        {/* Left Side */}
+        <div className="contact-info">
+          <h3>Get In Touch</h3>
+          <p>
+            Ready to bring your ideas to life? Whether you have a
+            question, want to collaborate on a project, or just want to
+            say hi — let's connect!
           </p>
-        </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-blue-600 rounded-lg">
-                <Mail size={24} className="text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Email</h3>
-                <p>keripalechinmay@gmail.com</p>
+          <div className="contact-methods">
+            <div className="method">
+              <div className="method-icon">✉</div>
+              <div className="method-text">
+                <span>Email</span>
+                <a href="mailto:keripalechinmay@gmail.com">
+                  keripalechinmay@gmail.com
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-green-600 rounded-lg">
-                <Phone size={24} className="text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Phone</h3>
-                <p>+91 9130091352</p>
+            <div className="method">
+              <div className="method-icon">📞</div>
+              <div className="method-text">
+                <span>Phone</span>
+                <a href="tel:+919130091352">
+                  +91 9130091352
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-red-600 rounded-lg">
-                <MapPin size={24} className="text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Location</h3>
-                <p>Jaysingpur, Maharashtra, India</p>
+            <div className="method">
+              <div className="method-icon">📍</div>
+              <div className="method-text">
+                <span>Location</span>
+                <p>Pune, Maharashtra, India</p>
               </div>
             </div>
           </div>
-
-          {/* Extra Cards (Leadership / Experience) */}
-          <div className="space-y-6">
-            
-            <div className={`${cardClasses} p-6 rounded-2xl shadow-xl border`}>
-              <Users className="text-purple-500 mb-2" size={24} />
-              <h3 className="font-bold mb-1">Vice-President</h3>
-              <p className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-                AISA, DKTE | Aug 2024 – Aug 2025
-              </p>
-            </div>
-          </div>
         </div>
+
+        {/* Right Side Form (Hidden) */}
+        {SHOW_FORM && (
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="contact-form"
+          >
+            <div className="input-group">
+              <div className="form-field">
+                <label htmlFor="name" className="form-label">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="form-input"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="form-input"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="subject" className="form-label">
+                Subject
+              </label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                className="form-input"
+                placeholder="Collaboration / Job Opportunity"
+                required
+              />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="message" className="form-label">
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                className="form-input"
+                placeholder="Hi Chinmay..."
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="submit-btn"
+            >
+              {status === 'sending'
+                ? 'Sending...'
+                : 'Send Message →'}
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
-}
+};
+
+export default Contact;
