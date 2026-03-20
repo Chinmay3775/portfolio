@@ -59,7 +59,7 @@ const Hero = () => {
       <div className="hero-graphic">
         <div className="hero-profile-card">
           <div className="hero-profile-img">
-            <img src="./images/profile.jpg" alt="Chinmay Keripale" />
+            <img src="./images/profile.png" alt="Chinmay Keripale" />
             <span className="available-badge">● Available</span>
           </div>
         </div>
