@@ -36,7 +36,7 @@ const Hero = () => {
           <button className="btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
             Let's Collaborate
           </button>
-          <a href="#" className="btn-icon-link">
+          <a href="./Chinmay_Keripale_Resume.pdf" className="btn-icon-link">
             Download Resume ↗
           </a>
         </div>
